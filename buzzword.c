@@ -56,10 +56,12 @@ int main(int argc, const char *argv[])
     srand((unsigned int)time(NULL));
 
     // Display the number of randomly generated phrases requested by the user
-    for (int i = 0; i < numberOfPhrases; i++)
+    int i = 0;
+    do
     {
         printf("\n%s %s %s\n", adjectives1[rand() % 13], adjectives2[rand() % 13], nouns[rand() % 13]);
-    }
+        i++;
+    } while (i < numberOfPhrases);
 
     return EXIT_SUCCESS;
 }

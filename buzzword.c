@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+void displayUsageAndExit();
+
 int main(int argc, const char *argv[])
 {
     int numberOfPhrases = 0;
@@ -21,8 +23,7 @@ int main(int argc, const char *argv[])
     else if (argc != 2)
     {
         // An incorrect number of arguments was given, so quit with usage message
-        printf("\nUsage: BUZZWORD number_of_phrases\nWhere number of phrases is a whole number from 1 to 99\n");
-        return EXIT_FAILURE;
+        displayUsageAndExit();
     }
     else
     {
@@ -34,8 +35,7 @@ int main(int argc, const char *argv[])
         if (errno == ERANGE || *inputStr != '\0' || inputNum < 1 || inputNum > 99)
         {
             // The argument could not be interpreted as an integer in the required range, so quit with usage message
-            printf("\nUsage: BUZZWORD number_of_phrases\nWhere number of phrases is a whole number from 1 to 99\n");
-            return EXIT_FAILURE;
+            displayUsageAndExit();
         }
 
         numberOfPhrases = (int)inputNum;
@@ -57,4 +57,10 @@ int main(int argc, const char *argv[])
     printf("\n%s %s %s\n", adjectives1[rand() % 13], adjectives2[rand() % 13], nouns[rand() % 13]);
 
     return EXIT_SUCCESS;
+}
+
+void displayUsageAndExit()
+{
+    printf("\nUsage: BUZZWORD number_of_phrases\nWhere number of phrases is a whole number from 1 to 99\n");
+    return EXIT_FAILURE;
 }

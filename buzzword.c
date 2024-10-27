@@ -62,5 +62,5 @@ int main(int argc, const char *argv[])
 void displayUsageAndExit()
 {
     printf("\nUsage: BUZZWORD number_of_phrases\nWhere number of phrases is a whole number from 1 to 99\n");
-    return EXIT_FAILURE;
+    exit(EXIT_FAILURE);
 }
